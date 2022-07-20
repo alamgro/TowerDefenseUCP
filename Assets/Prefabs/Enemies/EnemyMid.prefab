@@ -178,12 +178,15 @@ GameObject:
   - component: {fileID: 618715309096272103}
   - component: {fileID: 618715309096272100}
   - component: {fileID: 6102609331501727761}
+  - component: {fileID: 3417234503575723480}
   - component: {fileID: 618715309096272102}
+  - component: {fileID: 7050328519857233401}
+  - component: {fileID: 739466117146588488}
   - component: {fileID: 618715309096272101}
   - component: {fileID: 1492405279790234491}
   m_Layer: 0
   m_Name: EnemyMid
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,6 +242,35 @@ MonoBehaviour:
   OnDead:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3417234503575723480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618715309096272106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603b1c072793d394f9a75ffbd8725249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmount: 10
+  _tagToCompare: Player
+  onTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 739466117146588488}
+        m_TargetAssemblyTypeName: DestroyObject, Assembly-CSharp
+        m_MethodName: DestroyWithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &618715309096272102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +285,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 180
   _maxRadiansDelta: 1
+--- !u!114 &7050328519857233401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618715309096272106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd811f680fb1214fa0674b113a4a5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &739466117146588488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618715309096272106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebb7a3b167475d49b315a604e5b108e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destroyDelay: 0.1
+  _onDestroy:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!136 &618715309096272101
 CapsuleCollider:
   m_ObjectHideFlags: 0
