@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[SelectionBase]
 public class FollowWaypoints : MonoBehaviour
 {
     [SerializeField] private string _pathName;
@@ -16,7 +17,6 @@ public class FollowWaypoints : MonoBehaviour
     {
         GetWaypoints();
         StartCoroutine(MoveToNextWaypoint());
-
     }
 
     private void GetWaypoints()
