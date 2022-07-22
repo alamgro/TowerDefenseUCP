@@ -6,5 +6,10 @@ public static class GameConstants
     {
         public const string Game = "Game";
     }
-    
+
+    public static class Tag
+    {
+        public const string Enemy = "Enemy";
+    }
+
 }

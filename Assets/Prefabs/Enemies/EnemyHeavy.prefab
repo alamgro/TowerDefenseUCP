@@ -11,15 +11,15 @@ GameObject:
   - component: {fileID: 111373116335155469}
   - component: {fileID: 111373116335155470}
   - component: {fileID: 6750158977047063035}
+  - component: {fileID: 2557448781527303806}
   - component: {fileID: 111373116335155468}
   - component: {fileID: 557709329594849946}
-  - component: {fileID: 2557448781527303806}
   - component: {fileID: 8506299063673620937}
   - component: {fileID: 111373116335155471}
   - component: {fileID: 2137984658241524369}
   m_Layer: 0
   m_Name: EnemyHeavy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,36 +71,34 @@ MonoBehaviour:
   _currentHealth: 100
   OnReceiveDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1304904027626185995}
+        m_TargetAssemblyTypeName: FlashEffect, Assembly-CSharp
+        m_MethodName: PlayFlash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDead:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &111373116335155468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 111373116335155456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc38c7ec351e3146a24f287c97b0428, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotationSpeed: 180
-  _maxRadiansDelta: 1
---- !u!114 &557709329594849946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 111373116335155456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd811f680fb1214fa0674b113a4a5ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+      m_Calls:
+      - m_Target: {fileID: 8506299063673620937}
+        m_TargetAssemblyTypeName: DestroyObject, Assembly-CSharp
+        m_MethodName: DestroyWithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2557448781527303806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +128,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &111373116335155468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111373116335155456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc38c7ec351e3146a24f287c97b0428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 180
+  _maxRadiansDelta: 1
+--- !u!114 &557709329594849946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111373116335155456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd811f680fb1214fa0674b113a4a5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8506299063673620937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebb7a3b167475d49b315a604e5b108e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyDelay: 0.1
+  _destroyDelay: 0
   _onDestroy:
     m_PersistentCalls:
       m_Calls: []
@@ -187,6 +211,7 @@ GameObject:
   - component: {fileID: 111373116415272517}
   - component: {fileID: 111373116415272518}
   - component: {fileID: 111373116415272519}
+  - component: {fileID: 1304904027626185995}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -260,6 +285,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1304904027626185995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111373116415272569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d8dd809424543408f6eff2b35436b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 111373116415272519}
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _originalColor: {r: 0.9811321, g: 0, b: 0, a: 0}
+  _cooldownSpeed: 3
+  _playOnAwake: 0
 --- !u!1 &111373116873127372
 GameObject:
   m_ObjectHideFlags: 0

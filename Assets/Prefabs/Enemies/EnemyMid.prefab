@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 618715308866998191}
   - component: {fileID: 618715308866998188}
   - component: {fileID: 618715308866998189}
+  - component: {fileID: 5831961539688769286}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -167,6 +168,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5831961539688769286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618715308866998163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d8dd809424543408f6eff2b35436b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderers:
+  - {fileID: 618715308866998189}
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _originalColor: {r: 0.9811321, g: 0, b: 0, a: 0}
+  _cooldownSpeed: 3
+  _playOnAwake: 0
 --- !u!1 &618715309096272106
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +205,7 @@ GameObject:
   - component: {fileID: 1492405279790234491}
   m_Layer: 0
   m_Name: EnemyMid
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,10 +257,34 @@ MonoBehaviour:
   _currentHealth: 100
   OnReceiveDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5831961539688769286}
+        m_TargetAssemblyTypeName: FlashEffect, Assembly-CSharp
+        m_MethodName: PlayFlash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDead:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 739466117146588488}
+        m_TargetAssemblyTypeName: DestroyObject, Assembly-CSharp
+        m_MethodName: DestroyWithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3417234503575723480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aebb7a3b167475d49b315a604e5b108e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyDelay: 0.1
+  _destroyDelay: 0
   _onDestroy:
     m_PersistentCalls:
       m_Calls: []
