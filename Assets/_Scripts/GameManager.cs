@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -10,8 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _gameTimeScale = 1f;
     [SerializeField] private Slider _sliderTimeScale;
     [SerializeField] private UnityEvent OnGameOver;
-
-    
+        
     private static GameManager _instance;
     private bool _gameOver;
     private bool _win;

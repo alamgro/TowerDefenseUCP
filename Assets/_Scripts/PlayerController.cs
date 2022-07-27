@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _raycastDistance;
     [SerializeField] private LayerMask _groundLayerMask;
     [SerializeField] private LayerMask _weaponSlotLayerMask;
+    [SerializeField] private UnityEvent<string> OnWeaponPurchased;
 
     private GameObject _temporalHeldWeapon;
     private Camera _mainCamera;
@@ -36,13 +37,15 @@ public class PlayerController : MonoBehaviour
             case "Cannon":
                 _temporalHeldWeapon = Instantiate(_prefabCannon);
                 break;
-            case "LazerTurret":
+            case "LaserTurret":
                 _temporalHeldWeapon = Instantiate(_prefabLazerTurret);
                 break;
             default:
                 Debug.LogError($"Weapon type \"{weaponType}\" is not valid.");
                 break;
         }
+
+        OnWeaponPurchased?.Invoke(weaponType);
     }
 
     private IEnumerator HeldWeaponRoutine()
@@ -60,8 +63,11 @@ public class PlayerController : MonoBehaviour
                         && hitInfo.transform.childCount == 0)
                     {
                         _temporalHeldWeapon.transform.position = hitInfo.transform.position;
+                        //Set weapon parent
                         _temporalHeldWeapon.transform.SetParent(hitInfo.collider.transform);
+                        //Start weapon attack
                         _temporalHeldWeapon.GetComponent<WeaponAttack>().StartWeaponAttack();
+                        //Place weapon
                         _temporalHeldWeapon = null;
                     }
                 }
