@@ -40,6 +40,7 @@ public class WeaponAttack : MonoBehaviour
                     {
                         GameObject projectile = Instantiate(_prefabProjectile, _projectileSpawnPoint.position, _projectileSpawnPoint.rotation);
                         //projectile.transform.rotation = Quaternion.LookRotation(ray.direction, projectile.transform.forward);
+                        FindObjectOfType<AudioController>().PlayAudio("CannonShot");
                     }
                     else
                     {

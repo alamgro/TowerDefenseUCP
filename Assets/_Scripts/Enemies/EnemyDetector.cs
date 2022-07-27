@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class EnemyDetector : MonoBehaviour
 {
     [SerializeField] private Transform _detectedTarget;
+    [SerializeField] private string _tagToDetect = "Enemy";
     [SerializeField] private float _attackRange;
     [SerializeField] private UnityEvent<Transform> OnEnemyDetected;
     [SerializeField] private UnityEvent OnEnemyLost;
@@ -23,7 +24,7 @@ public class EnemyDetector : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(_detectedTarget == null)
+        if(_detectedTarget == null && other.CompareTag(_tagToDetect))
         {
             _detectedTarget = other.transform;
             OnEnemyDetected?.Invoke(_detectedTarget);

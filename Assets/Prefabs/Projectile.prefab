@@ -229,5 +229,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf727a31b2af74a498af859fde184f2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabFlashProjectile: {fileID: 1343232494920030270, guid: f7f1c82cce4fb6843a66abd554661b2f,
+  _prefabObjectToCreate: {fileID: 1343232494920030270, guid: f7f1c82cce4fb6843a66abd554661b2f,
     type: 3}
