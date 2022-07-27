@@ -939,6 +939,7 @@ MonoBehaviour:
   _attackCooldown: 1
   _rayLength: 25
   _shootType: 1
+  _shotSFX: {fileID: 11400000, guid: 935193b1bd879a340acfbf0aa1deaace, type: 2}
   OnShoot:
     m_PersistentCalls:
       m_Calls: []

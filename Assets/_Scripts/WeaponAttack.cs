@@ -3,22 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WeaponAttack : MonoBehaviour
+public class WeaponAttack : MonoBehaviour, IAudioPlayable
 {
     [SerializeField] Transform _weaponBarrel;
     [SerializeField] private int _damageAmount;
     [SerializeField] private float _attackCooldown = 1f;
     [SerializeField] private float _rayLength = 20f;
     [SerializeField] private ShootType _shootType;
+    [SerializeField] private AudioSFX _shotSFX;
     [SerializeField] private UnityEvent OnShoot;
     [Header("Projectile attributes")]
     [SerializeField] private GameObject _prefabProjectile;
     [SerializeField] Transform _projectileSpawnPoint;
 
+    private AudioController _audioController;
     private enum ShootType
     {
         Ray,
         Projectile,
+    }
+
+    private void Awake()
+    {
+        _audioController = FindObjectOfType<AudioController>();
     }
 
     public void StartWeaponAttack()
@@ -38,9 +45,8 @@ public class WeaponAttack : MonoBehaviour
                 {
                     if (_shootType.Equals(ShootType.Projectile))
                     {
-                        GameObject projectile = Instantiate(_prefabProjectile, _projectileSpawnPoint.position, _projectileSpawnPoint.rotation);
-                        //projectile.transform.rotation = Quaternion.LookRotation(ray.direction, projectile.transform.forward);
-                        FindObjectOfType<AudioController>().PlayAudio("CannonShot");
+                        Instantiate(_prefabProjectile, _projectileSpawnPoint.position, _projectileSpawnPoint.rotation);
+                        _shotSFX.PlayAudio();
                     }
                     else
                     {
@@ -62,7 +68,11 @@ public class WeaponAttack : MonoBehaviour
                 yield return null;
                 Debug.DrawRay(ray.origin, ray.direction * _rayLength, Color.yellow);
             }
-
         }
+    }
+
+    public void PlaySFX(string audioName)
+    {
+        _audioController.PlayAudio(audioName);
     }
 }

@@ -27,3 +27,10 @@ MonoBehaviour:
     Loop: 0
     AudioClips:
     - {fileID: 8300000, guid: d2a9bb5c900b96d4db75bf29981f93a3, type: 3}
+  - AudioName: GunShot
+    Volume: 0.5
+    Pitch: 1
+    StartDelay: 0
+    Loop: 0
+    AudioClips:
+    - {fileID: 8300000, guid: b6966e18247d733459f154f6af847abc, type: 3}

@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f9d85e3c4720fb4da76efdfdabf8a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageAmount: 50
+  _damageAmount: 25
   _initialBlinkDelay: 1
   _blinkDuration: 0.1
   _blinkDelayDecreaseRate: 0.1
