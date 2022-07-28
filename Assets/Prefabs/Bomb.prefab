@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7177421847521263270}
   - component: {fileID: 3839891522284293738}
   - component: {fileID: 6242926073252232278}
+  - component: {fileID: 5311882827624098879}
   - component: {fileID: 4878708097709024099}
   - component: {fileID: 529694517497854370}
   - component: {fileID: 5778440143870472727}
@@ -107,7 +108,7 @@ MonoBehaviour:
   _initialBlinkDelay: 1
   _blinkDuration: 0.1
   _blinkDelayDecreaseRate: 0.1
-  _delayBeforeExplotion: 0.5
+  _delayBeforeExplotion: 0.25
   _tagToCompare: Weapon
   _renderer: {fileID: 5982269808139648185}
   _damageList: []
@@ -117,6 +118,18 @@ MonoBehaviour:
       - m_Target: {fileID: 6242926073252232278}
         m_TargetAssemblyTypeName: DestroyObject, Assembly-CSharp
         m_MethodName: DestroyWithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5311882827624098879}
+        m_TargetAssemblyTypeName: CreateObject, Assembly-CSharp
+        m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -176,6 +189,21 @@ MonoBehaviour:
   _onDestroy:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5311882827624098879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3180420373477741182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf727a31b2af74a498af859fde184f2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabObjectToCreate: {fileID: 7954047450566003129, guid: 2a98380b8a854f34091d329d2fa650b1,
+    type: 3}
+  _chanceToCreateObject: 1
 --- !u!54 &4878708097709024099
 Rigidbody:
   m_ObjectHideFlags: 0
